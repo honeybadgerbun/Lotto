@@ -1,13 +1,14 @@
 import random
 import time
 import sys
+from play_games import wish_to_play
 
 game = "Russian Roulette"
 name = input("Hello player, what is your name? ")
 
-def wish_to_play():
+def wish_to_play(g):
     valid = False
-    answer = input(f"Do you wish to play {game}, Yes or No? (Y/N) ")
+    answer = input(f"Do you wish to play {g}, Yes or No? (Y/N) ")
     while not valid:
         if answer.upper() == 'Y' or answer.upper() == 'N':
             valid = True
@@ -38,8 +39,8 @@ def russian_roulette(bullet,pick):
             break
 
 
-def run_game():
-    if wish_to_play() == False:
+def run_game(g):
+    if wish_to_play(g) == False:
         print("""Where's the fun in that? Just leave already. (;_;)""")
         exit()
     else:
@@ -52,4 +53,4 @@ def run_game():
                 p = int(input("Pick a number 1-6 "))
             russian_roulette(b,p)
 
-run_game()
+run_game(game)
