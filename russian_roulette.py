@@ -2,11 +2,12 @@ import random
 import time
 import sys
 
+game = "Russian Roulette"
 name = input("Hello player, what is your name? ")
 
 def wish_to_play():
     valid = False
-    answer = input("Do you wish to play Russian Roulette, Yes or No? (Y/N) ")
+    answer = input(f"Do you wish to play {game}, Yes or No? (Y/N) ")
     while not valid:
         if answer.upper() == 'Y' or answer.upper() == 'N':
             valid = True
@@ -23,7 +24,7 @@ def russian_roulette(bullet,pick):
             print("Now I gotta clean this mess up. SHERANE, DO YOUR JOB!")
             break
         elif shot == bullet and shot > pick:
-            print("You got lucky, thaw was a boring game.")
+            print("You got lucky, that was a boring game.")
             break
         elif shot != bullet and shot != pick:
             print("Guess you got lucky with this shot, next one!")
@@ -31,6 +32,9 @@ def russian_roulette(bullet,pick):
             time.sleep(3)
         elif shot == bullet and shot == pick:
             print("Now I gotta clean this mess up. SHERANE, DO YOUR JOB!")
+            break
+        elif shot == pick and shot < bullet:
+            print("You got lucky, that was a boring game.")
             break
 
 
